@@ -13,7 +13,8 @@ public enum TypeChoix {
   HORDAGO("Hordago"),
   KANTA("Kanta"),
   IDOKI("Idoki"),
-  TIRA("Tira");
+  TIRA("Tira"),
+  MAUVAISESAISIE("MauvaiseSaisie");
 
   public static final List<TypeChoix> INITIAUX = List.of(PASO, IMIDO, HORDAGO);
 
@@ -27,6 +28,7 @@ public enum TypeChoix {
     KANTA.setChoixSuivantsPossibles(emptyList());
     IDOKI.setChoixSuivantsPossibles(emptyList());
     TIRA.setChoixSuivantsPossibles(emptyList());
+    MAUVAISESAISIE.setChoixSuivantsPossibles(emptyList());
   }
 
   private final String nom;

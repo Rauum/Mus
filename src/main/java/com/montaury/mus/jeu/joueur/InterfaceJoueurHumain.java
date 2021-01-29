@@ -9,6 +9,7 @@ import com.montaury.mus.jeu.tour.phases.dialogue.Imido;
 import com.montaury.mus.jeu.tour.phases.dialogue.Kanta;
 import com.montaury.mus.jeu.tour.phases.dialogue.Paso;
 import com.montaury.mus.jeu.tour.phases.dialogue.Tira;
+import com.montaury.mus.jeu.tour.phases.dialogue.MauvaiseSaisie;
 import com.montaury.mus.jeu.tour.phases.dialogue.TypeChoix;
 import java.util.Arrays;
 import java.util.List;
@@ -48,7 +49,7 @@ public class InterfaceJoueurHumain implements InterfaceJoueur {
     if (choix.equalsIgnoreCase("Tira")) return new Tira();
     if (choix.equalsIgnoreCase("Gehiago")) return new Gehiago(1);
     if (choix.equalsIgnoreCase("Kanta")) return new Kanta();
-    return new Paso();
+    return new MauvaiseSaisie();
   }
 
   @Override
