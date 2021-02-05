@@ -1,15 +1,8 @@
 package com.montaury.mus.jeu.joueur;
 
 import com.montaury.mus.jeu.carte.Carte;
-import com.montaury.mus.jeu.tour.phases.dialogue.Choix;
-import com.montaury.mus.jeu.tour.phases.dialogue.Gehiago;
-import com.montaury.mus.jeu.tour.phases.dialogue.Hordago;
-import com.montaury.mus.jeu.tour.phases.dialogue.Idoki;
-import com.montaury.mus.jeu.tour.phases.dialogue.Imido;
-import com.montaury.mus.jeu.tour.phases.dialogue.Kanta;
-import com.montaury.mus.jeu.tour.phases.dialogue.Paso;
-import com.montaury.mus.jeu.tour.phases.dialogue.Tira;
-import com.montaury.mus.jeu.tour.phases.dialogue.TypeChoix;
+import com.montaury.mus.jeu.tour.phases.dialogue.*;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;

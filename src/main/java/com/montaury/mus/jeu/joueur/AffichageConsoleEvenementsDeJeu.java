@@ -26,7 +26,7 @@ public class AffichageConsoleEvenementsDeJeu implements AffichageEvenementsDeJeu
   @Override
   public void mancheTerminee(Partie.Score score) {
     println("Manche terminee");
-    score.resultatManches().forEach(manche -> println("Vainqueur : " + manche.vainqueur().nom() + ", score du perdant : " + manche.pointsVaincu()));
+    score.resultatManches().forEach(manche -> println("Le vainqueur est : " + manche.vainqueur().nom() + ", score : 40 - " + manche.pointsVaincu()));
   }
 
   @Override
