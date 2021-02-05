@@ -9,7 +9,6 @@ import com.montaury.mus.jeu.tour.phases.dialogue.Imido;
 import com.montaury.mus.jeu.tour.phases.dialogue.Kanta;
 import com.montaury.mus.jeu.tour.phases.dialogue.Paso;
 import com.montaury.mus.jeu.tour.phases.dialogue.Tira;
-import com.montaury.mus.jeu.tour.phases.dialogue.MauvaiseSaisie;
 import com.montaury.mus.jeu.tour.phases.dialogue.TypeChoix;
 import java.util.Arrays;
 import java.util.List;
@@ -23,8 +22,19 @@ public class InterfaceJoueurHumain implements InterfaceJoueur {
 
   @Override
   public boolean veutAllerMus() {
-    println("Souhaitez-vous aller mus ? (o/n)");
-    return scanner.next().equals("o");
+    while (true) {
+      println("Souhaitez-vous aller mus ? (o/n)");
+      String valeurRetournerUtilisateur = scanner.next();
+      if (valeurRetournerUtilisateur.equals("o")) {
+        return true;
+      }
+      if (valeurRetournerUtilisateur.equals("n")) {
+        return false;
+      }
+      else {
+        System.out.println("Saisie invalide, veuillez recommencer !");
+      }
+    }
   }
 
   @Override
@@ -39,17 +49,19 @@ public class InterfaceJoueurHumain implements InterfaceJoueur {
 
   @Override
   public Choix faireChoixParmi(List<TypeChoix> choixPossibles) {
+    while(true) {
     print("Faites un choix entre (en toutes lettres): ");
     println(choixPossibles.stream().map(TypeChoix::nom).collect(Collectors.joining(" | ")));
     String choix = scanner.next();
-    if (choix.equalsIgnoreCase("Paso")) return new Paso();
-    if (choix.equalsIgnoreCase("Imido")) return new Imido();
-    if (choix.equalsIgnoreCase("Hordago")) return new Hordago();
-    if (choix.equalsIgnoreCase("Idoki")) return new Idoki();
-    if (choix.equalsIgnoreCase("Tira")) return new Tira();
-    if (choix.equalsIgnoreCase("Gehiago")) return new Gehiago(1);
-    if (choix.equalsIgnoreCase("Kanta")) return new Kanta();
-    return new MauvaiseSaisie();
+      if (choix.equalsIgnoreCase("Paso")) return new Paso();
+      if (choix.equalsIgnoreCase("Imido")) return new Imido();
+      if (choix.equalsIgnoreCase("Hordago")) return new Hordago();
+      if (choix.equalsIgnoreCase("Idoki")) return new Idoki();
+      if (choix.equalsIgnoreCase("Tira")) return new Tira();
+      if (choix.equalsIgnoreCase("Gehiago")) return new Gehiago(1);
+      if (choix.equalsIgnoreCase("Kanta")) return new Kanta();
+      System.out.println("Saisie invalide, veuillez recommencer !");
+    }
   }
 
   @Override
