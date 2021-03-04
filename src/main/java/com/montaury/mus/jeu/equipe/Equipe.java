@@ -1,6 +1,5 @@
-package com.montaury.mus.jeu.carte.equipe;
+package com.montaury.mus.jeu.equipe;
 
-import com.montaury.mus.jeu.joueur.InterfaceJoueurOrdinateur;
 import com.montaury.mus.jeu.joueur.Joueur;
 
 public class Equipe {
