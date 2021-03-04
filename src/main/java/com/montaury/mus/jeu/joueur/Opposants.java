@@ -1,46 +1,49 @@
 package com.montaury.mus.jeu.joueur;
 
+import com.montaury.mus.jeu.equipe.Equipe;
+
 import java.util.Iterator;
 import java.util.List;
 
-public class Opposants {
-  private Joueur joueurEsku;
-  private Joueur joueurZaku;
 
-  public Opposants(Joueur joueurEsku, Joueur joueurZaku) {
-    this.joueurEsku = joueurEsku;
-    this.joueurZaku = joueurZaku;
+public class Opposants {
+  private Equipe equipeEsku;
+  private Equipe equipeZaku;
+
+  public Opposants(Equipe equipeEsku, Equipe equipeZaku) {
+    this.equipeEsku = equipeEsku;
+    this.equipeZaku = equipeZaku;
   }
 
   public void tourner() {
-    Joueur tmp = joueurEsku;
-    joueurEsku = joueurZaku;
-    joueurZaku = tmp;
+    Equipe tmp = equipeEsku;
+    equipeEsku = equipeZaku;
+    equipeZaku = tmp;
   }
 
-  public Joueur joueurEsku() {
-    return joueurEsku;
+  public Equipe equipeEsku() {
+    return equipeEsku;
   }
 
-  public Joueur joueurZaku() {
-    return joueurZaku;
+  public Equipe equipeZaku() {
+    return equipeZaku;
   }
 
-  public Iterator<Joueur> itererDansLOrdre() {
+  public Iterator<Equipe> itererDansLOrdre() {
     return new IteratorInfini(this);
   }
 
-  public List<Joueur> dansLOrdre() {
-    return List.of(joueurEsku, joueurZaku);
+  public List<Equipe> dansLOrdre() {
+    return List.of(equipeEsku, equipeZaku);
   }
 
-  private static class IteratorInfini implements Iterator<Joueur> {
+  private static class IteratorInfini implements Iterator<Equipe> {
     private final Opposants opposants;
-    private Joueur suivant;
+    private Equipe suivant;
 
     public IteratorInfini(Opposants opposants) {
       this.opposants = opposants;
-      suivant = opposants.joueurEsku;
+      suivant = opposants.equipeEsku;
     }
 
     @Override
@@ -49,9 +52,9 @@ public class Opposants {
     }
 
     @Override
-    public Joueur next() {
-      Joueur next = suivant;
-      suivant = suivant == opposants.joueurEsku ? opposants.joueurZaku : opposants.joueurEsku;
+    public Equipe next() {
+      Equipe next = suivant;
+      suivant = suivant == opposants.equipeEsku ? opposants.equipeZaku : opposants.equipeEsku;
       return next;
     }
   }
