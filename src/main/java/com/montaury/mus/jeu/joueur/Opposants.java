@@ -7,43 +7,43 @@ import java.util.List;
 
 
 public class Opposants {
-  private Equipe equipeEsku;
-  private Equipe equipeZaku;
+  private Joueur joueurEsku;
+  private Joueur joueurZaku;
 
-  public Opposants(Equipe equipeEsku, Equipe equipeZaku) {
-    this.equipeEsku = equipeEsku;
-    this.equipeZaku = equipeZaku;
+  public Opposants(Joueur joueurEsku, Joueur joueurZaku) {
+    this.joueurEsku = joueurEsku;
+    this.joueurZaku = joueurZaku;
   }
 
   public void tourner() {
-    Equipe tmp = equipeEsku;
-    equipeEsku = equipeZaku;
-    equipeZaku = tmp;
+    Joueur tmp = joueurEsku;
+    joueurEsku = joueurZaku;
+    joueurZaku = tmp;
   }
 
-  public Equipe equipeEsku() {
-    return equipeEsku;
+  public Joueur joueurEsku() {
+    return joueurEsku;
   }
 
-  public Equipe equipeZaku() {
-    return equipeZaku;
+  public Joueur joueurZaku() {
+    return joueurZaku;
   }
 
-  public Iterator<Equipe> itererDansLOrdre() {
+  public Iterator<Joueur> itererDansLOrdre() {
     return new IteratorInfini(this);
   }
 
-  public List<Equipe> dansLOrdre() {
-    return List.of(equipeEsku, equipeZaku);
+  public List<Joueur> dansLOrdre() {
+    return List.of(joueurEsku, joueurZaku);
   }
 
-  private static class IteratorInfini implements Iterator<Equipe> {
+  private static class IteratorInfini implements Iterator<Joueur> {
     private final Opposants opposants;
-    private Equipe suivant;
+    private Joueur suivant;
 
     public IteratorInfini(Opposants opposants) {
       this.opposants = opposants;
-      suivant = opposants.equipeEsku;
+      suivant = opposants.joueurEsku;
     }
 
     @Override
@@ -52,9 +52,9 @@ public class Opposants {
     }
 
     @Override
-    public Equipe next() {
-      Equipe next = suivant;
-      suivant = suivant == opposants.equipeEsku ? opposants.equipeZaku : opposants.equipeEsku;
+    public Joueur next() {
+      Joueur next = suivant;
+      suivant = suivant == opposants.joueurEsku ? opposants.joueurZaku : opposants.joueurEsku;
       return next;
     }
   }

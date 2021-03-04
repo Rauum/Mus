@@ -1,6 +1,7 @@
 package com.montaury.mus;
 
 import com.montaury.mus.jeu.Partie;
+import com.montaury.mus.jeu.equipe.Equipe;
 import com.montaury.mus.jeu.joueur.AffichageConsoleEvenementsDeJeu;
 import com.montaury.mus.jeu.joueur.Joueur;
 import com.montaury.mus.jeu.joueur.Opposants;
@@ -11,6 +12,7 @@ public class Mus {
     System.out.print("Entrez votre nom: ");
     String nomJoueur = new Scanner(System.in).next();
     Joueur humain = Joueur.humain(nomJoueur);
+    System.out.print(Equipe.EquipeHumOrdi(nomJoueur).joueur1.nom());
 
     Partie partie = new Partie(new AffichageConsoleEvenementsDeJeu(humain));
     Partie.Resultat resultat = partie.jouer(new Opposants(humain, Joueur.ordinateur()));
