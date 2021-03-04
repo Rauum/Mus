@@ -4,22 +4,20 @@ import com.montaury.mus.jeu.joueur.Joueur;
 
 public class Equipe {
 
-    public static Equipe equipe1(String nomJoueur) {
+    public static Equipe EquipeHumOrdi(String nomJoueur) {
 
-        return new Equipe("Equipe1", Joueur.humain(nomJoueur), Joueur.ordinateur1());
+        return new Equipe("EquipeHumOrdi", Joueur.humain(nomJoueur));
     }
-    public static Equipe equipe2(){
-        return new Equipe("Equipe1", Joueur.ordinateur2() , Joueur.ordinateur3());
+    public static Equipe EquipeOrdiOrdi(){
+        return new Equipe("EquipeOrdiOrdi", Joueur.ordinateur());
     }
 
     private final String nom;
     public final Joueur joueur1;
-    public final Joueur joueur2;
 
 
-    public Equipe(String nom, Joueur joueur1, Joueur joueur2){
+    public Equipe(String nom, Joueur joueur1){
         this.nom = nom;
         this.joueur1 = joueur1;
-        this.joueur2 = joueur2;
     }
 }
