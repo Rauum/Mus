@@ -9,10 +9,12 @@ import java.util.List;
 public class Opposants {
   private Joueur joueurEsku;
   private Joueur joueurZaku;
+  private Equipe equipeEsku;
+  private Equipe equipeZaku;
 
-  public Opposants(Joueur joueurEsku, Joueur joueurZaku) {
-    this.joueurEsku = joueurEsku;
-    this.joueurZaku = joueurZaku;
+  public Opposants(Equipe equipeEsku, Equipe equipeZaku) {
+    this.joueurEsku = equipeEsku.joueur1;
+    this.joueurZaku = equipeZaku.joueur1;
   }
 
   public void tourner() {
