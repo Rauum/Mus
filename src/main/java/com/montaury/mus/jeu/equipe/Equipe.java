@@ -12,7 +12,6 @@ public class Equipe {
     private final String nom;
     public final Joueur joueur1;
 
-
     public Equipe(String nom, Joueur joueur1){
         this.nom = nom;
         this.joueur1 = joueur1;
