@@ -4,10 +4,7 @@ import com.montaury.mus.jeu.joueur.Joueur;
 
 public class Equipe {
 
-    public static Equipe EquipeHumOrdi(String nomJoueur) {
-
-        return new Equipe("EquipeHumOrdi", Joueur.humain(nomJoueur));
-    }
+    public static Equipe EquipeHumOrdi(String nomJoueur) { return new Equipe("EquipeHumOrdi", Joueur.humain(nomJoueur)); }
     public static Equipe EquipeOrdiOrdi(){
         return new Equipe("EquipeOrdiOrdi", Joueur.ordinateur());
     }
