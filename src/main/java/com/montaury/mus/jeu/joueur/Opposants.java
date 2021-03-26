@@ -9,18 +9,25 @@ import java.util.List;
 public class Opposants {
   private Joueur joueurEsku;
   private Joueur joueurZaku;
+  private Joueur joueur2;
+  private Joueur joueur3;
   private Equipe equipeEsku;
   private Equipe equipeZaku;
 
   public Opposants(Equipe equipeEsku, Equipe equipeZaku) {
     this.joueurEsku = equipeEsku.joueur1;
-    this.joueurZaku = equipeZaku.joueur1;
+    this.joueur2 = equipeZaku.joueur1;
+    this.joueur3 = equipeEsku.joueur2;
+    this.joueurZaku = equipeZaku.joueur2;
   }
 
   public void tourner() {
-    Joueur tmp = joueurEsku;
-    joueurEsku = joueurZaku;
-    joueurZaku = tmp;
+    Joueur tmp1 = joueurEsku;
+    Joueur tmp2 = joueur2;
+    joueurEsku = joueur3;
+    joueur2 = joueurZaku;
+    joueur3 = tmp2;
+    joueurZaku = tmp1;
   }
 
   public Joueur joueurEsku() {
@@ -31,12 +38,25 @@ public class Opposants {
     return joueurZaku;
   }
 
+  public Joueur joueur2() {
+    return joueur2;
+  }
+
+  public Joueur joueur3() {
+    return joueur3;
+  }
+
+  public Equipe equipeEsku() { return equipeEsku;}
+
+  public Equipe equipeZaku() { return equipeZaku;}
+
+
   public Iterator<Joueur> itererDansLOrdre() {
     return new IteratorInfini(this);
   }
 
   public List<Joueur> dansLOrdre() {
-    return List.of(joueurEsku, joueurZaku);
+    return List.of(joueurEsku,joueur2,joueur3,joueurZaku);
   }
 
   private static class IteratorInfini implements Iterator<Joueur> {
